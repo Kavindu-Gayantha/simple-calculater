@@ -5,6 +5,8 @@
  */
 package calculaterV1;
 
+import java.awt.Color;
+
 /**
  *
  * @author kavindu
@@ -16,6 +18,8 @@ public class frameCalculater extends javax.swing.JFrame {
      */
     public frameCalculater() {
         initComponents();
+        jRadioButton2.setEnabled(false);
+        jRadioButton2.setForeground(Color.black);
     }
     public void disable()
     {
@@ -40,7 +44,38 @@ public class frameCalculater extends javax.swing.JFrame {
         jButton36.setEnabled(false);
         jButton37.setEnabled(false);
         
+        jRadioButton2.setEnabled(true);  //show radio button 'on'
+        jRadioButton2.setForeground(Color.red);
+        jRadioButton1.setEnabled(false);  //disapear radio button 'off'
         
+        
+    }
+    public void enable()
+    {
+        jTextField1.setEnabled(true); // text are is enabled
+         //enable all buttons when on radio button click method calling
+        jButton20.setEnabled(true);  
+        jButton21.setEnabled(true);
+        jButton23.setEnabled(true);
+        jButton25.setEnabled(true);
+        jButton26.setEnabled(true);
+        jButton24.setEnabled(true);
+        jButton27.setEnabled(true);
+        jButton30.setEnabled(true);
+        jButton31.setEnabled(true);
+        jButton28.setEnabled(true);
+        jButton29.setEnabled(true);
+        jButton32.setEnabled(true);
+        jButton33.setEnabled(true);
+        jButton35.setEnabled(true);
+        jButton34.setEnabled(true);
+        jButton38.setEnabled(true);
+        jButton36.setEnabled(true);
+        jButton37.setEnabled(true);
+        
+        jRadioButton1.setEnabled(true);  //show radio button 'off'
+        jRadioButton2.setEnabled(false);  // disappear radio button 'on'
+        jRadioButton2.setForeground(Color.BLACK);
     }
 
     /**
@@ -232,11 +267,17 @@ public class frameCalculater extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jRadioButton2.setText("ON");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jTextField1.setFont(new java.awt.Font("Ubuntu", 1, 25)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -296,8 +337,8 @@ public class frameCalculater extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -424,9 +465,19 @@ public class frameCalculater extends javax.swing.JFrame {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
-        disable();
-        jLabel1.setText("calculater is OFF until turning ON");
+        disable();  //disable all the buttons
+        jLabel1.setText("calculater is OFF until turning ON");  //off radio button
+//        jRadioButton2.setEnabled(true);
+//        jRadioButton2.setForeground(Color.red);
+//        jRadioButton1.setEnabled(false); //off button disappear
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+        enable();   //on radio button
+        jLabel1.setText("");
+//        jRadioButton1.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
     
     /**
      * @param args the command line arguments
