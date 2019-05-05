@@ -77,6 +77,32 @@ public class frameCalculater extends javax.swing.JFrame {
         jRadioButton2.setEnabled(false);  // disappear radio button 'on'
         jRadioButton2.setForeground(Color.BLACK);
     }
+    double num,ans;
+    int calculation;
+    public void arithmetic_operation()
+    {
+        switch(calculation)
+        {
+            case 1 : //addition
+                ans = num + Double.parseDouble(jTextField1.getText()); //converting string to double
+                jTextField1.setText(Double.toString(ans)); //again double to string for the text field
+                break;
+            case 2 ://substraction
+                ans = num - Double.parseDouble(jTextField1.getText());
+                jTextField1.setText(Double.toString(ans));
+                break;
+            case 3 ://multiplication
+                ans = num * Double.parseDouble(jTextField1.getText());
+                jTextField1.setText(Double.toString(ans));
+                break;
+            case 4 ://division
+                ans = num / Double.parseDouble(jTextField1.getText());
+                jTextField1.setText(Double.toString(ans));
+                break;
+                
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -112,10 +138,12 @@ public class frameCalculater extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("calculater");
+        setTitle("calculater V 1.0");
         setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(218, 133, 51));
+        setBounds(new java.awt.Rectangle(1, 1, 1, 1));
+        setPreferredSize(new java.awt.Dimension(355, 404));
         setResizable(false);
-        setSize(new java.awt.Dimension(335, 453));
         setType(java.awt.Window.Type.UTILITY);
 
         jButton20.setFont(new java.awt.Font("URW Bookman L", 1, 20)); // NOI18N
@@ -136,6 +164,11 @@ public class frameCalculater extends javax.swing.JFrame {
 
         jButton23.setFont(new java.awt.Font("URW Bookman L", 1, 20)); // NOI18N
         jButton23.setText("=");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
 
         jButton24.setFont(new java.awt.Font("URW Bookman L", 1, 20)); // NOI18N
         jButton24.setText("2");
@@ -376,7 +409,7 @@ public class frameCalculater extends javax.swing.JFrame {
                     .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
@@ -430,6 +463,7 @@ public class frameCalculater extends javax.swing.JFrame {
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
         // TODO add your handling code here:
         jTextField1.setText("");
+        jLabel1.setText("");
     }//GEN-LAST:event_jButton36ActionPerformed
 
     private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
@@ -460,22 +494,38 @@ public class frameCalculater extends javax.swing.JFrame {
 
     private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
         // TODO add your handling code here:
-        jTextField1.setText(jTextField1.getText()+"+");
+//        jTextField1.setText(jTextField1.getText()+"+");
+        num = Double.parseDouble(jTextField1.getText());
+        calculation = 1; // to get the numbers in the text field and called + function
+        jTextField1.setText("");  // clear the text area
+        jLabel1.setText(num + " + ");
     }//GEN-LAST:event_jButton38ActionPerformed
 
     private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
         // TODO add your handling code here:
-        jTextField1.setText(jTextField1.getText()+"-");
+//        jTextField1.setText(jTextField1.getText()+"-");
+        num = Double.parseDouble(jTextField1.getText());
+        calculation = 2;  // to get the numbers in the text field and called - function
+        jTextField1.setText("");
+        jLabel1.setText(num + " - ");
     }//GEN-LAST:event_jButton34ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
         // TODO add your handling code here:
-        jTextField1.setText(jTextField1.getText()+"*");
+//        jTextField1.setText(jTextField1.getText()+"*");
+        num = Double.parseDouble(jTextField1.getText());
+        calculation = 3;  //to get the number in the text field and called * function
+        jTextField1.setText("");
+        jLabel1.setText(num + " * ");
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
         // TODO add your handling code here:
-        jTextField1.setText(jTextField1.getText()+"/");
+//        jTextField1.setText(jTextField1.getText()+"/");
+        num = Double.parseDouble(jTextField1.getText());
+        calculation = 4;  // to get the number in the text field and called / function
+        jTextField1.setText("");
+        jLabel1.setText(num + " / ");
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -493,6 +543,11 @@ public class frameCalculater extends javax.swing.JFrame {
         jLabel1.setText("");
 //        jRadioButton1.setEnabled(true);
     }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        // TODO add your handling code here:
+        arithmetic_operation();
+    }//GEN-LAST:event_jButton23ActionPerformed
     
     /**
      * @param args the command line arguments
